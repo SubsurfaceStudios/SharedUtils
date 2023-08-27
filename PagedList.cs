@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 
+// FIXME: This should be converted to use TaggedUnion<A, B> instead of
+//        using nulls to represent empty items.
 namespace SubsurfaceStudios.UI.Systems {
     [Serializable]
     /// <summary>
