@@ -1,9 +1,9 @@
-namespace SubsurfaceStudios.UI.Systems {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using UnityEngine;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using UnityEngine;
 
+namespace SubsurfaceStudios.UI.Systems {
     [Serializable]
     /// <summary>
     /// A system for iterating over an array in "pages", fixed-size slices of the backing array.
