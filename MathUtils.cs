@@ -3,6 +3,23 @@ namespace SubsurfaceStudios.Utilities.Math {
 		/// <summary>
 		/// Returns the first power of two that is greater than or equal to the input.
 		/// </summary>
+		public static uint NextPowerOfTwo(uint input) {
+			input--;
+
+			input |= input >> 1;
+			input |= input >> 2;
+			input |= input >> 4;
+			input |= input >> 8;
+			input |= input >> 16;
+
+			input++;
+
+			return input;
+		}
+
+		/// <summary>
+		/// Returns the first power of two that is greater than or equal to the input.
+		/// </summary>
 		public static ulong NextPowerOfTwo(ulong input) {
 			input--;
 
