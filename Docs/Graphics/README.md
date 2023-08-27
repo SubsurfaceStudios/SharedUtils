@@ -1,3 +1,6 @@
+# [SharedUtils](../README.md)/Graphics
+Provides a number of utilities for interacting with graphics in Unity.
+
 # Table of Contents
 ---
 - [Graphics/DirectRender](DirectRender.md)

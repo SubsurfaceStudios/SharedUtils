@@ -1,3 +1,6 @@
+# [SharedUtils](../README.md)/Memory
+Provides a number of utilities for managing memory structures in C#.
+
 # Table of Contents
 ---
 - [Memory/Bytes](Bytes.md)

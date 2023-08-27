@@ -1,4 +1,4 @@
-# Bytes
+# [SharedUtils](../README.md)/[Memory](./README.md)/Bytes
 ---
 #### Type: `public static class`  
 #### Namespace: `SubsurfaceStudios.Utilities.Memory.Unsafe`  

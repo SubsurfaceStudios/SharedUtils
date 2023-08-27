@@ -1,4 +1,4 @@
-# OverallocatingArray<T>
+# [SharedUtils](../README.md)/[Memory](./README.md)/OverallocatingArray<T>
 ---
 #### Type: `public class`  
 #### Namespace: `SubsurfaceStudios.Utilities.Memory`  
