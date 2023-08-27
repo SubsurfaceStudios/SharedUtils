@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace SubsurfaceStudios.Graphics {
     public static class DirectRender {
-        public static RenderTexture Now(Vector2 size, Matrix4x4 matrix, Action<RenderTexture> perform_actions) {
+        public static RenderTexture Now(Vector2Int size, Matrix4x4 matrix, Action<RenderTexture> perform_actions) {
             RenderTexture old = RenderTexture.active;
 
-            RenderTexture rt = new((int)size.x, (int)size.y, 0);
+            RenderTexture rt = new(size.x, size.y, 0);
             if (!rt.Create()) {
                 rt.Release();
                 return null;
