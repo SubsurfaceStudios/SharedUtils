@@ -5,8 +5,7 @@
 #### Namespace:
 `SubsurfaceStudios.Utilities.Memory`  
 #### Inherits:
-- `IList<T>`  
-
+- `IList<T>`
 ## Summary
 ---
 This provides a simple implementation of an array that scales in powers
@@ -37,7 +36,7 @@ array can hold without expanding.
 #### Type:
 `public bool`  
 #### Required by:
-- `IList<T>.ICollection<T>`  
+- `IList<T>.ICollection<T>`
 #### Accessibility:
 `get`  
 #### Summary
@@ -48,7 +47,7 @@ This always returns `false` in this implementation.
 #### Type:
 `public int`  
 #### Required by:  
-- `IList<T>`  
+- `IList<T>`
 #### Accessibility:
 `get`  
 #### Summary
@@ -89,11 +88,11 @@ Fetches an element from the array at the given index.
 #### Returns:
 `T[]`  
 #### Type Arguments:  
-- `T` (where `T: struct`): The type of structure.  
+- `T` (where `T: struct`): The type of structure.
 #### Arguments:  
-- `in T value`: The structure to convert to a byte array.  
+- `in T value`: The structure to convert to a byte array.
 #### Notes:  
-- This function uses the `MethodImpl` attribute for Aggressive Inlining.  
+- This function uses the `MethodImpl` attribute for Aggressive Inlining.
 #### Summary:
 Copies the elements of the array to a new array. This is a shallow copy,
 if `T` is a reference type then the references will remain the same.
@@ -106,7 +105,7 @@ if `T` is a reference type then the references will remain the same.
 #### Required by:
 `IList<T>.ICollection<T>`  
 #### Arguments:  
-- `T item`: The item to add to the array.  
+- `T item`: The item to add to the array.
 #### Notes:  
 - This function uses the `MethodImpl` attribute for Aggressive Inlining.
 #### Summary:  
@@ -140,9 +139,9 @@ Copies the backing array to a new one with with the capacity multiplied by
 
 ### Clear()
 #### Type:
-- `public void`  
+- `public void`
 #### Required by:
-- `IList<T>.ICollection<T>`  
+- `IList<T>.ICollection<T>`
 #### Summary:  
 Clears the array by setting its length to 0.  
 This does not clear the backing array, nor does it change the capacity.
@@ -242,7 +241,7 @@ Gets an enumerator for the array.
 `IEnumerator<T>`  
 #### Required by:
 - `IList<T>.ICollection<T>.IEnumerable<T>`
-- `IList<T>.IEnumerable<T>`  
+- `IList<T>.IEnumerable<T>`
 #### Summary:  
 Gets an enumerator for the array.
 
