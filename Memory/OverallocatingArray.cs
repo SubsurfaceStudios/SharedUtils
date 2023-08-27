@@ -13,17 +13,11 @@ namespace SubsurfaceStudios.Utilities.Memory {
         const float GROWTH_THRESHOLD = 0.8f;
         const float GROWTH_FACTOR = 2;
 
-        public bool IsFixedSize => false;
-
         public bool IsReadOnly => false;
 
         public int Count => Length;
 
-        public bool IsSynchronized => false;
-
         public int Capacity => Arr.Length;
-
-        public object SyncRoot { get; } = new object();
 
         public T this[int index] { 
             get {
@@ -44,16 +38,6 @@ namespace SubsurfaceStudios.Utilities.Memory {
             if(Length >= Arr.Length * GROWTH_THRESHOLD) Expand();
 
             Arr[Length++] = item;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]  
-        public void Fill(int start, int end, T value) {
-            EnsureCapacity(end);
-
-            for (int i = start; i < end; i++)
-                Arr[i] = value;
-
-            Length = end;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
