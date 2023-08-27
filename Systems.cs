@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace SubsurfaceStudios.UI.Systems {
     using System;
     using System.Collections.Generic;
