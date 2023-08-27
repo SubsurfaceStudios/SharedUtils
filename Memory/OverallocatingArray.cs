@@ -1,9 +1,9 @@
+using SubsurfaceStudios.Utilities.Math;
+using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace SubsurfaceStudios.Utilities.Memory {
-	using SubsurfaceStudios.Utilities.Math;
-    using System.Runtime.CompilerServices;
-    using System.Collections.Generic;
-    using System.Collections;
     using System;
 
     public class OverallocatingArray<T> : IList<T> {
