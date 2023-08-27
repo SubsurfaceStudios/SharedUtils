@@ -1,7 +1,7 @@
 # Bytes
 ---
-Type: `public static class`  
-Namespace: `SubsurfaceStudios.Utilities.Memory.Unsafe`  
+#### Type: `public static class`  
+#### Namespace: `SubsurfaceStudios.Utilities.Memory.Unsafe`  
 
 ## Summary
 ---
@@ -12,11 +12,11 @@ Also usable for things like protocol implementations and serialization.
 ---
 
 ### Of\<T\>()
-Type: `public static byte[]`  
-Returns: `byte[]` (potentially null)  
-Type Arguments:
+#### Type: `public static byte[]`  
+#### Returns: `byte[]` (potentially null)  
+#### Type Arguments:
 - `T` (where `T: struct`): The type of structure.
-Arguments:  
+#### Arguments:  
 - `in T value`: The structure to convert to a byte array.
 
 Example:  
@@ -59,11 +59,11 @@ public class ExampleBehaviour : MonoBehaviour {
 ---
 
 ### To\<T\>()
-Type: `public static T?`
-Returns: `T?` (potentially null)
-Type Arguments:
+#### Type: `public static T?`
+#### Returns: `T?` (potentially null)
+#### Type Arguments:
 - `T` (where `T: struct`): The type of structure.
-Arguments:
+#### Arguments:
 - `this byte[] bytes`: The byte array to convert to a structure.
 
 Example:
