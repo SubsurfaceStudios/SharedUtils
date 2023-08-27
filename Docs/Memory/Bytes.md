@@ -66,7 +66,7 @@ public class ExampleBehaviour : MonoBehaviour {
 #### Arguments:
 - `this byte[] bytes`: The byte array to convert to a structure.
 
-Example:
+#### Example:
 ```csharp
 using SubsurfaceStudios.Utilities.Memory.Unsafe;
 using System.Runtime.InteropServices;
