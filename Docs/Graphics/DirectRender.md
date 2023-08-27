@@ -1,7 +1,7 @@
 # DirectRender
 ---
-Type: `public static class`  
-Namespace: `SubsurfaceStudios.Graphics`  
+#### Type: `public static class`  
+#### Namespace: `SubsurfaceStudios.Graphics`  
 
 ## Summary
 ---
@@ -11,14 +11,14 @@ This provides a simple implementation of a rendering API that is used for writin
 ---
 
 ### Now()
-Type: `public static RenderTexture`  
-Returns: `RenderTexture`  
-Arguments:  
+#### Type: `public static RenderTexture`  
+#### Returns: `RenderTexture`  
+#### Arguments:  
 - `Vector2Int size`: The size (in pixels) of the render texture to create.
 - `Matrix4x4 matrix`: The projection matrix to use while executing the specified actions.
 - `Action<RenderTexture> perform_actions`: The actions to execute while rendering to the render texture.
 
-Example:  
+#### Example:  
 ```csharp
 using SubsurfaceStudios.Graphics;
 using UnityEngine;
