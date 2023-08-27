@@ -164,7 +164,6 @@ namespace SubsurfaceStudios.UI.Systems {
 namespace SubsurfaceStudios.Utilities.Async {
     using System.Threading.Tasks;
     using UnityEngine;
-    using System.Collections;
 
     public class YieldableTask<T> : CustomYieldInstruction
     {
@@ -183,7 +182,8 @@ namespace SubsurfaceStudios.Utilities.Async {
     }
 }
 
-namespace SubsurfaceStudios.Utilities.Memory {
+namespace SubsurfaceStudios.Utilities.Memory
+{
     using System.Runtime.CompilerServices;
     using System.Collections.Generic;
     using System.Collections;
