@@ -1,6 +1,5 @@
-using System;
 using System.Runtime.InteropServices;
-using UnityEngine;
+using System;
 
 namespace SubsurfaceStudios.Utilities.Memory.Unsafe {
     /// <summary>
@@ -19,7 +18,7 @@ namespace SubsurfaceStudios.Utilities.Memory.Unsafe {
         /// </remarks>
         /// <param name="value">The struct to copy data from.</param>
         /// <typeparam name="T">The type of struct to convert from.</typeparam>
-        public static byte[] Of<T>(in T value) where T: struct {
+        public static TaggedUnion<byte[], Exception> Of<T>(in T value) where T: struct {
 			int size = Marshal.SizeOf(value);
             byte[] bytes = new byte[size];
 
@@ -29,13 +28,12 @@ namespace SubsurfaceStudios.Utilities.Memory.Unsafe {
                 Marshal.StructureToPtr(value, ptr, true);
                 Marshal.Copy(ptr, bytes, 0, size);
             } catch (Exception ex) {
-				Debug.LogException(ex);
-				return null;
+				return new(ex);
 			} finally {
 				Marshal.FreeHGlobal(ptr);
 			}
 
-			return bytes;
+			return new(bytes);
 		}
 
         /// <summary>
