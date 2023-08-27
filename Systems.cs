@@ -182,8 +182,7 @@ namespace SubsurfaceStudios.Utilities.Async {
     }
 }
 
-namespace SubsurfaceStudios.Utilities.Memory
-{
+namespace SubsurfaceStudios.Utilities.Memory {
     using System.Runtime.CompilerServices;
     using System.Collections.Generic;
     using System.Collections;
