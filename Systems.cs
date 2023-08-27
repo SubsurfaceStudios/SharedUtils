@@ -173,8 +173,7 @@ namespace SubsurfaceStudios.Utilities.Async {
         public T result => await.Result;
 
         public override bool keepWaiting => !await.IsCompleted;
-    }
-    public class YieldableTask : CustomYieldInstruction
+    public class YieldableTask : CustomYieldInstruction {
     {
         private readonly Task await;
         public YieldableTask(Task await) => this.await = await;
