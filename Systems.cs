@@ -183,18 +183,6 @@ namespace SubsurfaceStudios.Utilities.Async {
     }
 }
 
-namespace SubsurfaceStudios.Utilities.Constants {
-    public static class UnityConstants {
-        private static Camera mainCamera;
-        public static Camera MainCamera {
-            get {
-                if(mainCamera == null) mainCamera = Camera.main;
-                return mainCamera;
-            }
-        }
-    }
-}
-
 namespace SubsurfaceStudios.Utilities.Memory
 {
     using System.Runtime.CompilerServices;
