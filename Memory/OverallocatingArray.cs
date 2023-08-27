@@ -8,7 +8,7 @@ namespace SubsurfaceStudios.Utilities.Memory {
 
     public class OverallocatingArray<T> : IList<T> {
         public T[] Arr;
-        public int Length = 1;
+        public int Length;
 
         const float GROWTH_THRESHOLD = 0.8f;
         const float GROWTH_FACTOR = 2;
