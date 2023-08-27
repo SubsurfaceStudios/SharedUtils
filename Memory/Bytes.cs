@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using UnityEngine;
 using System;
 
 namespace SubsurfaceStudios.Utilities.Memory.Unsafe {
@@ -18,22 +19,27 @@ namespace SubsurfaceStudios.Utilities.Memory.Unsafe {
         /// </remarks>
         /// <param name="value">The struct to copy data from.</param>
         /// <typeparam name="T">The type of struct to convert from.</typeparam>
-        public static TaggedUnion<byte[], Exception> Of<T>(in T value) where T: struct {
+        /// <returns>The raw memory representation of the structure.</returns>
+        public static byte[] Of<T>(in T value) where T: struct {
 			int size = Marshal.SizeOf(value);
             byte[] bytes = new byte[size];
 
 			IntPtr ptr = IntPtr.Zero;
 			try {
                 ptr = Marshal.AllocHGlobal(size);
+                if (ptr == IntPtr.Zero)
+                    return null;
                 Marshal.StructureToPtr(value, ptr, true);
                 Marshal.Copy(ptr, bytes, 0, size);
             } catch (Exception ex) {
-				return new(ex);
+                Debug.LogException(ex);
+                return null;
 			} finally {
-				Marshal.FreeHGlobal(ptr);
+                if (ptr != IntPtr.Zero)
+                    Marshal.FreeHGlobal(ptr);
 			}
 
-			return new(bytes);
+			return bytes;
 		}
 
         /// <summary>
@@ -46,29 +52,32 @@ namespace SubsurfaceStudios.Utilities.Memory.Unsafe {
         /// <param name="bytes">The array of bytes to copy data from.</param>
         /// <typeparam name="T">The type of struct to convert to.</typeparam>
         /// <returns>A tagged union containing either the converted struct or an error the function encountered.</returns>
-		public static TaggedUnion<T, Exception> To<T>(this byte[] bytes) where T: struct {
+		public static T? To<T>(this byte[] bytes) where T: struct {
             T value = default;
 
             int size = Marshal.SizeOf(value);
-            if (size != bytes.Length)
-                return new(new ArgumentException($"The size of the struct ({size}) does not match the size of the byte array ({bytes.Length})."));
+            if (size < bytes.Length)
+                throw new ArgumentException($"The size of the byte array ({bytes.Length} bytes) does not match the size of the structure.");
 
             IntPtr ptr = IntPtr.Zero;
 
             try {
                 ptr = Marshal.AllocHGlobal(size);
+                if (ptr == IntPtr.Zero)
+                    return null;
 
                 Marshal.Copy(bytes, 0, ptr, size);
 
                 value = Marshal.PtrToStructure<T>(ptr);
             } catch (Exception ex) {
-                return new(ex);
+                Debug.LogException(ex);
+                return null;
             } finally {
                 if (ptr != IntPtr.Zero)
                     Marshal.FreeHGlobal(ptr);
             }
 
-			return new(value);
+			return value;
 		}
 	}
 }
