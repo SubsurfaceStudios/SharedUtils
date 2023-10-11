@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 namespace SubsurfaceStudios {
     public sealed class EventVolume : MonoBehaviour {
         public LayerMask m_PlayerLayerMask;
@@ -30,5 +34,20 @@ namespace SubsurfaceStudios {
                 m_OnObjectExit.Invoke();
             }
         }
+
+#if UNITY_EDITOR
+    [MenuItem("GameObject/3D Object/Event Volume", false, 10)]
+    static void CreateEventVolume(MenuCommand command) {
+        GameObject go = new("Event Volume");
+        GameObjectUtility.SetParentAndAlign(go, command.context as GameObject);
+
+        Undo.RegisterCreatedObjectUndo(go, $"Create {go.name}");
+        Selection.activeObject = go;
+
+        Collider c = go.AddComponent<BoxCollider>();
+        c.isTrigger = true;
+        go.AddComponent<EventVolume>();
+    }
+#endif
     }
 }
