@@ -1,9 +1,8 @@
 using UnityEngine;
+using UnityEditor;
 
 namespace SubsurfaceStudios.Attributes.Editor
 {
-    using UnityEditor;
-
     [CustomPropertyDrawer(typeof(InspectorReadOnly))]
     public class InspectorReadOnlyPropertyDrawer : PropertyDrawer
     {

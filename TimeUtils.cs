@@ -1,4 +1,4 @@
-namespace SubsurfaceStudios.Utilities.Time {
+namespace SubsurfaceStudios.Utilities.Timers {
     using System;
 
     public static class TimeUtils {

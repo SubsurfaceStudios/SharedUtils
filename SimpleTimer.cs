@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using SubsurfaceStudios.Attributes;
 using SubsurfaceStudios.Utilities.Async;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SubsurfaceStudios.Utilities.Time
+namespace SubsurfaceStudios.Utilities.Timers
 {
-    [System.Serializable]
+    [Serializable]
     public class SimpleTimer
     {
         public float duration;
@@ -33,9 +34,17 @@ namespace SubsurfaceStudios.Utilities.Time
             }
             
             isRunning = true;
-            onTimerStart?.Invoke(currentTime);
+            Execute(onTimerStart, currentTime);
 
             StaticCoroutineHandler.StartCoroutineStatic(Timer());
+        }
+
+        private void Execute(Action<float> action, float value) {
+            try {
+                action?.Invoke(value);
+            } catch {
+                Debug.LogException(ex);
+            }
         }
 
         public IEnumerator Timer()
@@ -43,12 +52,12 @@ namespace SubsurfaceStudios.Utilities.Time
             while (currentTime < duration && isRunning)
             {
                 currentTime += Time.deltaTime;
-                onTimerTick?.Invoke(currentTime);
+                Execute(onTimerTick, currentTime);
                 yield return null;
             }
             
             isRunning = false;
-            onTimerStop?.Invoke(currentTime);
+            Execute(onTimerStop, currentTime);
         }
 
         public void Reset()
@@ -59,7 +68,7 @@ namespace SubsurfaceStudios.Utilities.Time
         public void Stop()
         {
             isRunning = false;
-            onTimerStop?.Invoke(currentTime);
+            Execute(onTimerStop, currentTime);
         }
     }
 }
