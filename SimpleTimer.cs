@@ -42,7 +42,7 @@ namespace SubsurfaceStudios.Utilities.Timers
         private void Execute(UnityEvent<float> action, float value) {
             try {
                 action?.Invoke(value);
-            } catch {
+            } catch (Exception ex) {
                 Debug.LogException(ex);
             }
         }
