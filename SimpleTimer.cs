@@ -39,7 +39,7 @@ namespace SubsurfaceStudios.Utilities.Timers
             StaticCoroutineHandler.StartCoroutineStatic(Timer());
         }
 
-        private void Execute(Action<float> action, float value) {
+        private void Execute(UnityEvent<float> action, float value) {
             try {
                 action?.Invoke(value);
             } catch {
