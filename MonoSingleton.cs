@@ -10,7 +10,7 @@ namespace SubsurfaceStudios.Utilities.Instancing
         {
             if (Instance != null && Instance != this)
             {
-                Destroy(gameObject);
+                Destroy(this);
                 return;
             }
 
